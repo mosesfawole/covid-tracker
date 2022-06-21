@@ -4,7 +4,7 @@
 
     <DataBoxes :stats="stats" />
 
-    <CountrySelect :countries="countries" />
+    <CountrySelect @get-country="getCountryData" :countries="countries" />
   </main>
   <main class="flex flex-col align-center justify-center text-center" v-else="">
     <div class="text-gray-500 text-3xl mt-10 mb-6">Fetching Data</div>
@@ -38,6 +38,10 @@ export default {
       const res = await fetch("https://api.covid19api.com/summary");
       const data = await res.json();
       return data;
+    },
+    getCountryData(country) {
+      this.stats = country;
+      this.title = country.Country;
     },
   },
   async created() {
