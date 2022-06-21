@@ -45,7 +45,7 @@ export default {
     console.log(data);
     this.dataDate = data.Date;
     this.stats = data.Global;
-    this.countries = data.countries;
+    this.countries = data.Countries;
     this.loading = false;
   },
 };
